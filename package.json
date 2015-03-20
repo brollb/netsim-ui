@@ -1,0 +1,29 @@
+{
+  "name": "netsim-ui",
+  "version": "1.0.0",
+  "description": "A Graphical User Interface for netsim",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brollb/netsim-ui"
+  },
+  "keywords": [
+    "network",
+    "simulator",
+    "netsim"
+  ],
+  "author": "Brian Broll",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brollb/netsim-ui/issues"
+  },
+  "homepage": "https://github.com/brollb/netsim-ui",
+  "dependencies": {
+    "mocha": "^2.2.1",
+    "webgme": "^0.8.2"
+  }
+}

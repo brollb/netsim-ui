@@ -1,0 +1,26 @@
+[
+    {"id": "ModelEditor",
+        "title": "Composition",
+        "panel": "js/Panels/ModelEditor/ModelEditorPanel",
+        "DEBUG_ONLY": false},
+
+    {"id": "METAAspect",
+        "title": "Meta",
+        "panel": "js/Panels/MetaEditor/MetaEditorPanel",
+        "DEBUG_ONLY": false},
+
+    {"id": "SetEditor",
+        "title": "Set membership",
+        "panel": "js/Panels/SetEditor/SetEditorPanel",
+        "DEBUG_ONLY": true},
+
+    {"id": "Crosscut",
+        "title": "Crosscut",
+        "panel": "js/Panels/Crosscut/CrosscutPanel",
+        "DEBUG_ONLY": true},
+
+    {"id": "GraphViz",
+        "title": "Graph view",
+        "panel": "js/Panels/GraphViz/GraphVizPanel",
+        "DEBUG_ONLY": true}
+]
