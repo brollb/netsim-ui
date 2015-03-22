@@ -187,16 +187,33 @@ define(['plugin/PluginConfig',
             dst: this._getPointerNodeName(node, 'dst'),
             packetLoss: this.core.getAttribute(node, 'packet loss'),
             latencyMean: this.core.getAttribute(node, 'latency mean'),
-            latencySigma: this.core.getAttribute(node, 'latency variance')
+            latencySigma: this.core.getAttribute(node, 'latency variance'),
+
+            // UI Stuff -- Not necessary for netsim functionality (used
+            // for importing correctly)
+            srcPosition: this._getPointerNodePosition(node, 'src'),
+            dstPosition: this._getPointerNodePosition(node, 'dst')
         };
 
     };
 
-    NetworkExporter.prototype._getPointerNodeName = function(node, ptr) {
+    NetworkExporter.prototype._getPointerNode = function(node, ptr) {
         var path = this.core.getPointerPath(node, ptr),
             target = this.getNode(path);
 
+        return target;
+    };
+
+    NetworkExporter.prototype._getPointerNodeName = function(node, ptr) {
+        var target = this._getPointerNode(node, ptr);
+
         return this.core.getAttribute(target, 'name');
+    };
+
+    NetworkExporter.prototype._getPointerNodePosition = function(node, ptr) {
+        var target = this._getPointerNode(node, ptr);
+
+        return this.core.getRegistry(target, 'position');
     };
 
     //transformed
