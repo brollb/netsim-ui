@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "setup": "node node_modules/webgme/src/bin/import.js model/netsim_master.json -p netsim",
+    "setup-local": "node node_modules/webgme/src/bin/import.js model/netsim_master.json -p netsim -m mongodb://127.0.0.1:27017/netsim"
   },
   "repository": {
     "type": "git",
@@ -27,3 +29,4 @@
     "webgme": "^0.8.2"
   }
 }
+
