@@ -6,6 +6,9 @@ var config = require('webgme/config/config.default'),
 config.server.port = 8080;
 config.mongo.uri = 'mongodb://127.0.0.1:27017/netsim';
 
+// Default Project
+config.client.defaultProject.name = 'netsim';
+
 // Customize Visualizers
 config.visualization.visualizerDescriptors = ['./Visualizers.json'];
 
