@@ -101,49 +101,12 @@ define(['plugin/PluginConfig',
             } else {
                 //executing the plugin
                 self.logger.info("Finished loading children");
-                err = self._runSync();
-                if (err){
-                    self.result.success = false;
-                    callback(err,self.result);
-                } else {
-                    var counter = self.config.preview + self.config.configuration;
-                    if(self.config.configuration){
-                        self._saveOutput(self.projectName.replace(" ", "_") + ".dax", self.output, function(err){
-                            if(err){ 
-                                self.result.success = false;
-                                callback(err,self.result);
-                            } else {
-                                if(--counter === 0){
-                                    if(callback){
-                                        self.result.success = true;
-                                        callback(null,self.result);
-                                    }
-                                }
-                            }
-                        });
-                    }
-
-                    if(self.config.preview){
-                        self.save("Pegasus plugin modified project",function(err){
-                            if(err){ 
-                                self.result.success = false;
-                                callback(err,self.result);
-                            } else {
-                                if(--counter === 0){
-                                    if(callback){
-                                        self.result.success = true;
-                                        callback(null,self.result);
-                                    }
-                                }
-                            }
-                        });
-                    }
-                }
+                self._runPlugin(callback);
             }
         });
     };
 
-    NetworkExporter.prototype._runSync = function(){
+    NetworkExporter.prototype._runPlugin = function(callback) {
         // Get all nodes
         var nodeIds = this.core.getChildrenPaths(this.activeNode),
             connections = [],
@@ -164,7 +127,8 @@ define(['plugin/PluginConfig',
         // Save file
         this._saveNetworkConfig(network);
 
-        return null;
+        this.result.setSuccess(true);
+        callback(null, this.result);
     };
 
     /**
